@@ -1,0 +1,36 @@
+# $ kubectl apply -f deployment.yaml
+# $ kubectl port-forward svc/demo 8080:8080
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo
+  name: demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo
+  template:
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - image: gcr.io/cf-sandbox-dsyer/demo
+        name: demo
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+spec:
+  selector:
+    app: demo
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
