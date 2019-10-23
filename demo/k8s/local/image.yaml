@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: demo
 spec:
-spec:
   template:
     spec:
       containers:

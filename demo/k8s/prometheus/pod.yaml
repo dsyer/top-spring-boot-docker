@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  template:
+    spec:
+      containers:
+      - name: demo
+        volumeMounts:
+        - name: podinfo
+          mountPath: /etc/podinfo
+          readOnly: false
+      volumes:
+      - name: podinfo
+        downwardAPI:
+          items:
+          - path: "labels"
+            fieldRef:
+              fieldPath: metadata.labels
+          - path: "annotations"
+            fieldRef:
+              fieldPath: metadata.annotations
+        
