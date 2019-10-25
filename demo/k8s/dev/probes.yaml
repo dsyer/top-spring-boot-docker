@@ -9,7 +9,7 @@ spec:
         - name: demo
           livenessProbe:
             httpGet:
-              path: /actuator/health
+              path: /actuator/info
               port: 8080
             initialDelaySeconds: 10
             periodSeconds: 3
@@ -17,5 +17,5 @@ spec:
             initialDelaySeconds: 20
             periodSeconds: 10
             httpGet:
-              path: /actuator/info
+              path: /actuator/health
               port: 8080
