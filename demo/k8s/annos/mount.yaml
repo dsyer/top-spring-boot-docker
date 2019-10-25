@@ -1,0 +1,9 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+spec:
+  template:
+    metadata:
+      annotations:
+        sidecar-injector-webhook.morven.me/inject: "yes"
