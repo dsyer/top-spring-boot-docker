@@ -23,4 +23,4 @@ RUN chown -R demo:demo /app
 USER demo
 ENTRYPOINT ["sh", "-c", "java -noverify -XX:TieredStopAtLevel=1 -cp /app:/app/lib/*:${EXT_LIBS}/* \
   -Dmanagement.endpoints.web.exposure.include=prometheus,info,health,metrics \
-  com.example.demo.DemoApplication"]
+  com.example.demo.DemoApplication ${0} ${@}"]
