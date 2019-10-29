@@ -18,7 +18,7 @@ spec:
         app: demo
     spec:
       containers:
-      - image: gcr.io/cf-sandbox-dsyer/demo
+      - image: dsyer/demo
         name: demo
 
 ---

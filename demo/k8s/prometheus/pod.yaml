@@ -7,6 +7,9 @@ spec:
     spec:
       containers:
       - name: demo
+        env:
+        - name: EXT_LIBS
+          value: /app/ext
         volumeMounts:
         - name: podinfo
           mountPath: /etc/podinfo
