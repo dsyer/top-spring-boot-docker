@@ -4,9 +4,6 @@ metadata:
   name: demo
 spec:
   template:
-    metadata:
-      annotations:
-        pod-mutating-webhook.spring.io/inject: "yes"
     spec:
       containers:
       - image: dsyer/demo
@@ -14,7 +11,19 @@ spec:
         volumeMounts:
         - name: demo-config
           mountPath: /app/config/
+        - name: podinfo
+          mountPath: /etc/podinfo
+          readOnly: false
       volumes:
       - name: demo-config
         configMap:
           name: demo-config
+      - name: podinfo
+        downwardAPI:
+          items:
+          - path: "labels.properties"
+            fieldRef:
+              fieldPath: metadata.labels
+          - path: "annotations"
+            fieldRef:
+              fieldPath: metadata.annotations
