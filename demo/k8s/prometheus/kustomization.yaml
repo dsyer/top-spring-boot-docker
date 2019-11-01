@@ -5,6 +5,7 @@ resources:
 - ../base
 - config.yaml
 patchesStrategicMerge:
+- probes.yaml
 - mount.yaml
 - pod.yaml
 configMapGenerator:
