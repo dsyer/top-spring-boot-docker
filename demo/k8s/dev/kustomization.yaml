@@ -5,6 +5,6 @@ namePrefix: dev-
 commonLabels:
   app: dev-demo
 resources:
-- ../base
+- ../actuator
 patchesStrategicMerge:
 - probes.yaml
